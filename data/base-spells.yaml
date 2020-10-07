@@ -23,6 +23,7 @@ invoke_messages:
 - You reach for their centers
 
 prep_messages:
+- You begin to draw your focus on
 - You feel a tension build up in your body
 - Leaping from your finger
 - You are bathed in a bruised ivory glow
@@ -102,6 +103,9 @@ prep_messages:
 - A strong wind swirls around you as you prepare
 - A radiant glow wreathes your hands as you weave lines of light
 - With a casual wave of your hand, you begin to murmur an esoteric incantation
+- You focus your thoughts on the immolation of the skies.
+- You are now prepared to cast
+- You already have a cantrip prepared!
 
 cast_messages:
 - You clench your fists
@@ -186,6 +190,8 @@ cast_messages:
 - ^Incited by the spell, your starlight aura
 - ^Cupping your palms skyward, you bask in a cascade.*$
 - ^Your mind latches onto something moving just under the surface of the air
+- ^You trace the complex sigils
+- ^The air around you becomes
 
 khri_preps:
 - With deep breaths
@@ -224,6 +230,7 @@ khri_preps:
 - After a deep breath, your meditation bears fruit
 - Briefly shutting your eyes
 - Deep within yourself you call forth
+- You begin to draw your focus
 
 barb_abilities:
   Python:
@@ -948,7 +955,7 @@ spell_data:
     abbrev: EMC
     mana: 15
     recast: 1
-    mana_type: arcane    
+    mana_type: arcane
   Enrichment:
     skill: Augmentation
     abbrev: ENRICH
@@ -1037,6 +1044,15 @@ spell_data:
     skill: Augmentation
     recast: 1
     mana_type: lunar
+  Flame Shockwave:
+    abbrev: FLS
+    prep_time: 0
+    cast: gesture
+    harmless: true
+    expire: Your attention wanders, the dream of skies alight gone with it.
+    mana:
+    recast: 1
+    mana_type: elemental
   Fluoresce:
     abbrev: fluoresce
     mana: 1
@@ -1789,7 +1805,6 @@ spell_data:
     harmless: true
     abbrev: RM
     mana: 15
-    recast: 1
     expire: The unnatural fog breaks apart
     mana_type: elemental
   Rite of Contrition:
@@ -1803,7 +1818,7 @@ spell_data:
     abbrev: RoF
     cyclic: true
     mana: 5
-    mana_type: arcane    
+    mana_type: arcane
   Rite of Grace:
     skill: Utility
     abbrev: ROG
@@ -1973,7 +1988,7 @@ spell_data:
     abbrev: SOLACE
     mana: 5
     recast: 1
-    mana_type: arcane    
+    mana_type: arcane
   Soul Ablaze:
     skill: Augmentation
     abbrev: SOUL

@@ -24,6 +24,8 @@ class TextSubs
   end
 end
 
+settings = get_settings
+
 action = proc do |client_string|
   matches = TextSubs.subs.select { |key, _| key =~ client_string }
   matches.each { |target, result| client_string.gsub!(target, result) }
@@ -38,12 +40,19 @@ before_dying do
 end
 
 # Put shit list players in textsubs
-if get_settings.integrate_shit_list_with_textsubs && File.file?("#{checkname}_shit.list")
+if settings.integrate_shit_list_with_textsubs && File.file?("#{checkname}_shit.list")
   File.open("#{checkname}_shit.list", 'r') do |file|
     file.each do |line|
       name = line.split(',').first.capitalize
       TextSubs.add(name.to_s, "#{name} (SL)")
     end
+  end
+end
+
+
+unless settings.private_textsubs.empty?
+  settings.private_textsubs.each do |k, v|
+    TextSubs.add(k, v)
   end
 end
 
@@ -123,7 +132,7 @@ if DRStats.moon_mage?
   TextSubs.add('Besoge', "Besoge (Mer'kresh)")
 end
 
-if get_settings.herb_textsubs
+if settings.herb_textsubs
   TextSubs.add('nilos', "nilos (abdo-EW)")
   TextSubs.add('muljin', "muljin (abdo-IW)")
   TextSubs.add('dioica', "dioica (gen-ES)")
@@ -1521,5 +1530,34 @@ TextSubs.add('kirm mysanda', 'kirm mysanda (vitality)')
 TextSubs.add('lyba mysanda', 'lyba mysanda (spirit)')
 TextSubs.add('mishar mysanda', 'mishar mysanda (concentration)')
 TextSubs.add('morlam mysanda', 'morlam mysanda (fatigue)')
+
+#sigil hunting mini game
+TextSubs.add(':\s+--------------------', ':  0/20')
+TextSubs.add(':\s+\*-------------------', ':  1/20')
+TextSubs.add(':\s+\*\*------------------', ':  2/20')
+TextSubs.add(':\s+\*\*\*-----------------', ':  3/20')
+TextSubs.add(':\s+\*\*\*\*----------------', ':  4/20')
+TextSubs.add(':\s+\*\*\*\*\*---------------', ':  5/20')
+TextSubs.add(':\s+\*\*\*\*\*\*--------------', ':  6/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*-------------', ':  7/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*------------', ':  8/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*-----------', ':  9/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*----------', ':  10/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*---------', ':  11/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*--------', ':  12/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*\*-------', ':  13/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*\*\*------', ':  14/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*-----', ':  15/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*----', ':  16/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*---', ':  17/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*--', ':  18/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*-', ':  19/20')
+TextSubs.add(':\s+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*', ':  20/20')
+
+TextSubs.add('\.\.\.a trivial', '...a trivial (1/5)')
+TextSubs.add('\.\.\.a straightforward', '...a straightforward (2/5)')
+TextSubs.add('\.\.\.a formidable', '...a formidable (3/5)')
+TextSubs.add('\.\.\.a challenging', '...a challenging (4/5)')
+TextSubs.add('\.\.\.a difficult', '...a difficult (5/5)')
 
 clear until script.gets.nil?

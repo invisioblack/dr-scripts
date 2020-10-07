@@ -8,6 +8,10 @@ training_manager_town_duration:
 # T2 Settings
 training_list:
 
+# TextSubs
+private_textsubs:
+  # old text: new text
+
 # Combat settings
 # https://elanthipedia.play.net/Lich_script_repository#combat-trainer
 aim_fillers:
@@ -204,6 +208,8 @@ dump_item_count: 9
 # as an example, chuno currently runs it at 6 being circle 195
 # defaulting to 25, as 20 for lower skilled barbs was explained to be common
 meditation_pause_timer: 25
+# Requires health_threshold (will use below this number) and inner_fire_threshold (will use if ABOVE this number) - Leave empty if unused!
+barb_famine_healing:
 # This is deprecated, instead switch to use_analyze_combos
 use_barb_combos: false
 # use the analyze combos to train for all guilds, brawling analyze isn't supported
@@ -381,6 +387,10 @@ exp_timers:
 # until you've increased by this many mind states,
 # or until you've reached crossing_training_max_threshold.
 attunement_target_increment: 17
+# The summoning script will continuously train
+# until you've increased by this many mind states,
+# or until you've reached crossing_training_max_threshold.
+summoning_target_increment: 17
 # Listen to classes in your safe-room
 listen: false
 listen_observe: false
@@ -1500,4 +1510,7 @@ faux_atmo_no_use_rooms:
 - Carousel Booth       # Room just before vault
 - 1900                 # You can specify room ids, too
 
+
+# Will attempt to invoke a tessera during crossing-training between activities, 10 minute cooldown.
+use_tessera_during_crossing_training: false
 
