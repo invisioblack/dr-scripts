@@ -114,6 +114,14 @@ fatigue_regen_threshold: 90
 fatigue_regen_action: bob
 # Minimum balance to perform certain actions (currently only whirlwind)
 balance_regen_threshold: 8 #solidly balanced
+# Pattern Hues settings
+# gesture is either random, custom, or a specific setting
+pattern_hues:
+  duration: 1500
+  gesture: random
+  pattern_hues_styles:
+    pattern:
+    hue:
 # settings for WM or MM summoned weapons.  See Dartellum-setup or Crannach-setup
 summoned_weapons:
 summoned_weapons_element:
@@ -137,7 +145,7 @@ thanatology:
   ritual_type:
   heal: false
   store: false
-  harvest_container: 
+  harvest_container:
   harvest_count: 0
 # attempts to necromancer dissect after butchering a mob.  This often works.
 dissect_and_butcher: false
@@ -460,9 +468,9 @@ number_of_firstaid_charts: 25
 firstaid_scholarship_modifier:
 
 # trainer noun should match exactly
-fa_skinning_trainer: 
+fa_skinning_trainer:
 # Options:  First Aid, Skinning, Both or leave blank for whichever happens first
-fa_skinning_priority: 
+fa_skinning_priority:
 
 dedicated_camb_use:
 symbiosis_learning_threshold: 2
@@ -580,8 +588,27 @@ lumber_quantity: 15
 # container used to hold alcohol or water for remedy.lic (optional)
 alcohol_container:
 water_container:
-# container used to hold herbs for remedy.lic (optional)
+# container used to hold herbs for remedy.lic (optional) Not optional if overriding
 herb_container:
+# override craft.lic training items
+craft_overrides:
+# Following settings, including herb_container:, are required to override workorders for remedies
+# container used for raw herbs foraged - used by alchemy.lic script
+alchemy_herb_storage:
+# quantity of gathered herbs, recall a workorder requires 25 herbs per finished product
+# Set to your workorder_max_items: setting times 4. Example, if workorder_max_items: 4,
+# set this setting to 100.
+alchemy_herb_quantity: 25
+# How many prepared herbs you want:
+alchemy_prep_quantity: 25
+# if you want to forage careful
+alchemy_forage_type:
+# Set an override for foraging if Outdoorsmanship is high enough to find the herb anywhere
+forage_override_room:
+# Set an override for town
+forage_override_town:
+# Set this to true if you want to always forage for your herbs for workorders
+workorders_override_store: false
 
 # Workorder settings
 # https://elanthipedia.play.net/Lich_script_repository#workorders
@@ -779,7 +806,11 @@ use_lockpick_ring: true
 skip_lockpick_ring_refill: false
 lockpick_container: lockpick ring
 lockpick_type: ordinary
+# If you harvest traps when disarming boxes
+# and you set the component_container property
+# then you might also want to set sell_loot_traps: true
 harvest_traps: true
+# When harvesting traps from boxes, this is where you store the traps.
 component_container:
 picking_box_source: duffel bag
 # Keep this empty to drop too-hard boxes on the ground
@@ -792,7 +823,7 @@ lockpick_room_id:
 lockpick_ignore_difficulty: false
 lockpick_force_disarm_careful: false
 #leave empty to use fill pouch only when no loot_specials are present or true = always and false = never
-fill_pouch_with_box: 
+fill_pouch_with_box:
 
 # Bankbot Settings
 bankbot_name:
@@ -804,6 +835,9 @@ bankbot_enabled: false
 sell_loot: true
 sell_loot_pouch: true
 sell_loot_bundle: true
+# For thieves to sell their component pouch of harvested traps.
+# If set to true, you likely also want to set harvest_traps and component_container.
+sell_loot_traps: false
 sell_loot_money_on_hand: 3 silver
 sell_loot_skip_bank: false
 sell_loot_skip_exchange: false
@@ -956,50 +990,9 @@ lockpick_buff_bot:
 slack_username:
 
 # HE script
-darkbox_junk:
-- sharkskin
-- root
-- rockweed
-- kelp
-- flowers
-- apple
-- strawberry
-- root
-- snake
-- cobra
-- coin
-- belt
-- powder
-- sundress
-- earcuff
-- armband
-- anklet
-- sash
-- ascot
-- shirt
-- cap
-- cape
-- ocarina
-- tooth
-- cloak
-- pants
-- headscarf
-- belt
-- boots
-- tobacco
-- trousers
-- moccasins
-- viper
-- armband
-- ring
-- peach
-- sandwich
-- plum
-
-darkbox_stop_on_wounded: false
-
-# HE script
-pumpkin_junk:
+darkbox_junk: # depreciated - consolidated into hollow_eve_junk
+pumpkin_junk: # depreciated - consololidated into hollow_eve_junk
+hollow_eve_junk:
 - socks
 - seeds
 - muffin
@@ -1052,72 +1045,156 @@ pumpkin_junk:
 - green bracelet
 - cambrinth peach
 - cambrinth turnip
-- pouch
+- cambrinth ring
 - fangs
 - band
 - eyeballs
-
-# HE script
-boggle_junk:
+- meat
 - robe
-- blouse
-- pajamas
-- cambrinth armband
-- pants
-- anklet
-- towel
-- keyblank
-- blossom
-- amulet
-- greatcloak
-- cloak
-- coat
-- shirt
-- pumpkins
-- mirror
-- globe
-- earrings
-- wings
-- compass
-- cambrinth pumpkin
-- spectacles
-- jar
-- clay
-- fabric
-- strands
-- flamewood case
-- leather boots
-- tomiek-rimmed goggles
-- scarecrow doll
-- boggle doll
-- heart
-- garnet
+- skinning knife
+- card
+- cookie tin
+- tin
+- yo-yo
+- otter
 - comb
-- wooden earcuff
-- orange hat
-- wooden armband
-- gem pouch
-- sling
-- seeds
-- purse
-- simple necklace
-- electrum charm
-- glass pestle
-- cookie
-- candy
-- pumpkin pie
-- mortar
-- ring
-- statuette
-- lollipop
+- razor
+- octopus
+- dice
+- kaleidoscope
+- Alamhif
+- Albreda
+- Aliesa
+- Aluna
+- Aniek
+- Asketi
+- Be'ort
+- Berengaria
+- Botolf
+- Chadatru
+- Coshivi
+- Damaris
+- Demrris
+- Dergati
+- Divyaush
+- Drogor
+- Eimeuz
+- Eluned
+- Enelne
+- Everild
+- Eylhaar
+- Faenella
+- Firulf
+- Glythtide
+- Harawep
+- Hav'roth
+- Hodierna
+- Huldah
+- Idon
+- Kerenhappuch
+- Kertigen
+- Kuniyo
+- Lemicus
+- Meraud
+- Merion
+- Misiumos
+- Mrod
+- Murrula
+- Orisas
+- Peri'el
+- Phelim
+- Rutilor
+- Saemaus
+- Sieben
+- Sraxaec
+- Tamsine
+- Tenemlor
+- Tieheq
+- Truffenyi
+- Urrem'tier
+- Ushnish
+- Xosiurion
+- Zachriedek
+- sharkskin
+- root
+- rockweed
+- kelp
+- flowers
+- apple
+- strawberry
+- root
+- snake
+- cobra
+- coin
+- belt
+- powder
+- sundress
+- earcuff
+- armband
+- anklet
+- sash
+- ascot
+- shirt
+- cap
+- cape
+- ocarina
+- tooth
+- cloak
+- pants
+- headscarf
+- belt
+- boots
+- tobacco
 - trousers
-- rocks
-- carving knife
-- beer
-- pendant
-- torque
-- rose
-- wallet
+- moccasins
+- viper
+- armband
+- cambrinth ring
+- peach
+- sandwich
+- plum
+- wheel
+- ocarina
+- coyote
+- soap
+- hat
+- patch
+- eel skin
+- kaleidoscope
+- silk cloth
+- pewter bar
+- robe
+- boots
+- dagger
+- bobblehead
+- yo-yo
+- turtle
+- bracelet
+- razor
+- tunic
+- dice
+- kelp
+- tunic
+- towel
+- comb
+- meat
+- fan
+- whistle
+- cowbell
+- puppet
+- jar
+- toy sword
+- eraser
+- haversack
+- fedora
+- abacus
+- skirt
+- quill
+- pinwheel
+- globe
+- medal
+- rope
+- traveler's pack
 
 maze_junk:
 - earrings
@@ -1144,12 +1221,18 @@ maze_junk:
 - sweet corn
 - sweater
 
+darkbox_stop_on_wounded: false
 # Define a list of containers like you would for storage_containers.  All the bags you could shove stuff into for the cornmaze
 cornmaze_containers:
 boggle_withdraw: true
 boggle_stow_container: backpack
 boggle_full_container: haversack
 boggle_cash_on_hand: 50 platinum
+# New HE game
+dice_money_on_hand: 10 platinum
+dice_bet_amount: 10
+dice_withdraw: true
+hollow_eve_loot_container: backpack
 
 # HE script
 grave_junk:
@@ -1318,6 +1401,7 @@ theurgy_bead_carving_tool:
 theurgy_use_prayer_mat: false
 theurgy_prayer_mat_room:
 pray_to_chadatru: false
+holy_weapon:
 
 # https://elanthipedia.play.net/Lich_script_repository#fill-dirt
 dirt_stacker:
@@ -1411,7 +1495,6 @@ play_no_use_scripts:
 - combat-trainer
 - buff
 - burgle
-- go2
 - theurgy
 
 # https://elanthipedia.play.net/Lich_script_development#sorter
@@ -1510,7 +1593,19 @@ faux_atmo_no_use_rooms:
 - Carousel Booth       # Room just before vault
 - 1900                 # You can specify room ids, too
 
-
 # Will attempt to invoke a tessera during crossing-training between activities, 10 minute cooldown.
 use_tessera_during_crossing_training: false
+
+# Feed-cloak settings
+# If your cloak can't feed in your current room
+# then feed-cloak will move to this specified room id.
+# If not specified, or if the cloak can't feed here either,
+# then the script will move to your `safe_room`.
+# Example: 992 # Crossing, [Northeast Wilds, Outside Northeast Gate]
+feed_cloak_room:
+
+#Flying mount setting
+#Currently only used by bescort for the Faldesu and Segoltha.
+#Example: flying_mount: silk carpet
+flying_mount:
 
