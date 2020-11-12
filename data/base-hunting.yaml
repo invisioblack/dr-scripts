@@ -351,6 +351,7 @@ hunting_zones:
   - 14110
   # https://elanthipedia.play.net/Rat                                       0-30
   # premie only rooms - in shipyard
+  # Estate Holder Only - in shipyard
   rats_lumber:
   - 13171
   - 13172
@@ -358,11 +359,11 @@ hunting_zones:
   - 13174
   # https://elanthipedia.play.net/Rat                                       0-30
   # premie only rooms - out ne gate
+  # Estate Holder Only - out ne gate
   rats_brewery:
   - 8485
   - 8488
   - 8489
-  - 8490
   # https://elanthipedia.play.net/Sleazy_Lout                               0-35
   louts:
   - 686
@@ -461,7 +462,6 @@ hunting_zones:
   - 1686
   - 1685
   - 1684
-  - 1687
   # https://elanthipedia.play.net/Origami_Creature                         20-55
   origami:
   - 8433
@@ -478,13 +478,13 @@ hunting_zones:
   - 1690
   - 1691
   - 1700
-  - 1701
-  # https://elanthipedia.play.net/Croff_pothanit                           22-39
+  - 1701  # https://elanthipedia.play.net/Croff_pothanit                           22-39
   # same pothanit, premie only rooms
   pothanit_tree:
   - 1705
   - 1704
   - 1703
+
   # https://elanthipedia.play.net/Blood_dryad                              25-40
   # There are Blood Dryads and Blood Nyads in this area.
   blood_dryad:
@@ -508,6 +508,7 @@ hunting_zones:
   - 16126
   - 16127
   - 16128
+
   - 16129
   # https://elanthipedia.play.net/Glutinous_lipopod                        32-50
   # https://elanthipedia.play.net/Water_sprite                             28-45
@@ -534,13 +535,13 @@ hunting_zones:
   - 1706
   - 1699
   - 1698
+
   # https://elanthipedia.play.net/Trollkin                                 33-40
   # Same trollkin, premie only rooms                                       
   trollkin_slope:
   - 1695
   - 1696
   - 1694
-  - 1697
   # https://elanthipedia.play.net/S%27lai_Scout                            36-49
   scouts:
   - 7292
@@ -568,7 +569,8 @@ hunting_zones:
   # https://elanthipedia.play.net/Cougar                                   30-49
   # https://elanthipedia.play.net/Meadow_ram                               45-70
   # https://elanthipedia.play.net/Small_grendel                            35-50
-  # premie only rooms - Mixed critters
+
+  # Estate Holder Only - Mixed critters
   baearholts_farmhold:
   - 8441
   - 8442
@@ -580,12 +582,11 @@ hunting_zones:
   # https://elanthipedia.play.net/Wood_Troll_(1)                           36-53
   # https://elanthipedia.play.net/Brown_bear                               45-59
   # https://elanthipedia.play.net/Small_grendel                            35-50
-  # premie only rooms - Mixed critters
+  # Estate Holder Only - Mixed critters  
   baearholts_orchard:
   - 8469
   - 8467
   - 8468
-  - 8472
   # https://elanthipedia.play.net/Revenant_conscript                       40-60
   revenant_conscripts:
   - 706
@@ -1095,6 +1096,7 @@ hunting_zones:
   - 1729
   - 1728
   - 1721
+
 ################################################################################
 ##########                                                            ##########
 ##########                           ILITHI                           ##########
