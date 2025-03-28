@@ -1,0 +1,40 @@
+fput "Research Stop"
+pause 1
+fput "research stop"
+fput "research stop"
+pause
+    loop do
+      if DRSkill.getxp('Attunement')<= 6 
+		start_script("researcher", ["Attunement"]);
+		wait_while{ running?('researcher') }
+	  end
+	  pause 3
+	  if DRSkill.getxp('warding')<= 6 
+		start_script("researcher", ["warding"]);
+		wait_while{ running?('researcher') }
+	  end
+	  if DRSkill.getxp('Primary Magic')<= 20 
+		start_script("researcher", ["FUNDAMENTAL"]);
+		wait_while{ running?('researcher') }
+	  end
+	  pause 4
+	  if DRSkill.getxp('utility')<= 6 
+		start_script("researcher", ["utility"]);
+		wait_while{ running?('researcher') }
+	  end
+	  pause 5
+	  if DRSkill.getxp('AUGMENTATION')<= 6 
+		start_script("researcher", ["AUGMENTATION"]);
+		wait_while{ running?('researcher') }
+	  end
+	  pause 6
+	  if DRSkill.getxp('Primary Magic')<= 20 
+		start_script("researcher", ["FUNDAMENTAL"]);
+		wait_while{ running?('researcher') }
+	  end
+	  if DRSkill.getxp('Primary Magic')<= 20 
+		start_script("researcher", ["FUNDAMENTAL"]);
+		wait_while{ running?('researcher') }
+	  end
+      pause 10
+    end
