@@ -23,7 +23,7 @@ class SanowretCrystal
     return if hiding?
 	pause 1
     if DRSkill.getxp('Arcana') <= 21
-      response = DRC.bput('gaze sanowret crystal', /A soft light blossoms in the very center of the crystal, and begins to fill your mind with the knowledge of .*\./, 'However, nothing much else happens, as you lack the concentration to focus.', 'This is not a good place for that.')
+      response = DRC.bput('gaze my sanowret crystal', /A soft light blossoms in the very center of the crystal, and begins to fill your mind with the knowledge of .*\./, 'However, nothing much else happens, as you lack the concentration to focus.', 'This is not a good place for that.')
     end
 	pause 10
 
