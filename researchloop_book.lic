@@ -1,0 +1,82 @@
+fput "Research Stop"
+pause 1
+fput "research stop"
+fput "research stop"
+pause
+    loop do
+      if DRSkill.getxp('Attunement')<= 6 
+		start_script("researcher", ["Attunement"]);
+		wait_while{ running?('researcher') }
+	  end
+	  fput "get my almanac"
+	  fput "open my almanac"
+	  pause 1
+	  fput "study my almanac"
+	  pause 5
+	  fput "close my almanac"
+	  fput "stow right"
+	  pause 3
+	  if DRSkill.getxp('warding')<= 6 
+		start_script("researcher", ["warding"]);
+		wait_while{ running?('researcher') }
+	  end
+	  if DRSkill.getxp('Primary Magic')<= 20 
+		start_script("researcher", ["FUNDAMENTAL"]);
+		wait_while{ running?('researcher') }
+	  end
+	  fput "get my almanac"
+	  fput "open my almanac"
+	  pause 1
+	  fput "study my almanac"
+	  pause 5
+	  fput "close my almanac"
+	  fput "stow right"
+	  pause 4
+	  if DRSkill.getxp('utility')<= 6 
+		start_script("researcher", ["utility"]);
+		wait_while{ running?('researcher') }
+	  end
+	  fput "get my almanac"
+	  fput "open my almanac"
+	  pause 1
+	  fput "study my almanac"
+	  pause 5
+	  fput "close my almanac"
+	  fput "stow right"
+	  pause 5
+	  if DRSkill.getxp('AUGMENTATION')<= 6 
+		start_script("researcher", ["AUGMENTATION"]);
+		wait_while{ running?('researcher') }
+	  end
+	  fput "get my almanac"
+	  fput "open my almanac"
+	  pause 1
+	  fput "study my almanac"
+	  pause 5
+	  fput "close my almanac"
+	  fput "stow right"
+	  pause 6
+	  if DRSkill.getxp('Primary Magic')<= 20 
+		start_script("researcher", ["FUNDAMENTAL"]);
+		wait_while{ running?('researcher') }
+	  end
+	  fput "get my almanac"
+	  fput "open my almanac"
+	  pause 1
+	  fput "study my almanac"
+	  pause 5
+	  fput "close my almanac"
+	  fput "stow right"
+	  if DRSkill.getxp('Primary Magic')<= 20 
+		start_script("researcher", ["FUNDAMENTAL"]);
+		wait_while{ running?('researcher') }
+	  end
+	  fput "get my almanac"
+	  fput "open my almanac"
+	  pause 1
+	  fput "study my almanac"
+	  pause 5
+	  fput "close my almanac"
+	  fput "stow right"
+      pause 10
+    end
