@@ -1,0 +1,81 @@
+
+🛠️ Disable Power Saving on an ASUS ROG Laptop
+🔹 Step 1: Disable Wi-Fi Power Saving
+Press Windows + X → select Device Manager.
+
+Expand Network adapters.
+
+Right-click the Wi-Fi adapter (e.g., Intel AX200), then click Properties.
+
+Go to the Power Management tab.
+
+Uncheck: “Allow the computer to turn off this device to save power.”
+
+Click OK.
+
+🔹 Step 2: Set Wireless to Maximum Performance
+Press Windows + S, search for Edit power plan, and open it.
+
+Click “Change advanced power settings.”
+
+Expand Wireless Adapter Settings → Power Saving Mode.
+
+Set both On battery and Plugged in to Maximum Performance.
+
+Click Apply → OK.
+
+🔹 Step 3: Set Power Plan to High Performance (or Ultimate)
+Press Windows + X → Power Options.
+
+Under Preferred plans, choose High performance or ASUS Recommended (check if it says “Performance” or “Turbo”).
+
+If only "Balanced" is listed:
+
+Open Command Prompt (Admin).
+
+Run:
+
+nginx
+Copy
+Edit
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+This adds the Ultimate Performance plan. Select it in Power Options.
+
+🔹 Step 4: Disable Fast Startup (Optional but Helps Stability)
+Press Windows + S, search “Choose what the power buttons do”, and open it.
+
+Click “Change settings that are currently unavailable.”
+
+Uncheck: “Turn on fast startup (recommended).”
+
+Click Save changes.
+
+🔹 Step 5: Set Armoury Crate to Turbo or Performance
+Open Armoury Crate (should be pre-installed).
+
+Go to Device → System Configuration or Power Profiles.
+
+Select Turbo or Performance mode.
+
+Avoid Silent or Battery Saver modes—they throttle everything.
+
+Check for “Background App Management” and disable anything that restricts network or system performance.
+
+💥 Bonus: Disable USB Selective Suspend (Helps With Sleep Issues)
+Back in Advanced Power Settings, expand:
+
+USB settings → USB selective suspend setting
+
+Set both On battery and Plugged in to Disabled.
+
+With all that locked in, her laptop should stop playing dead during idle moments, and the Wi-Fi should stay steady even during long in-game sessions.
+
+Copy this to a doc or DM it to her directly. If she still won’t do it?
+She’s not trying to fix the problem.
+
+
+
+
+
+
+
