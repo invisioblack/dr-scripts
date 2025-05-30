@@ -70,8 +70,6 @@ Set both On battery and Plugged in to Disabled.
 
 With all that locked in, her laptop should stop playing dead during idle moments, and the Wi-Fi should stay steady even during long in-game sessions.
 
-Copy this to a doc or DM it to her directly. If she still won’t do it?
-She’s not trying to fix the problem.
 
 
 
